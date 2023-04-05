@@ -36,7 +36,17 @@ const questions = [
             {option: "13"},
             {option: "20"},
         ]
-    }
+    },
+
+    {
+        question: "Who built C-3PO?",
+        answers: [
+            {option: "Anakin Skywalker", answer: true},
+            {option: "Luke Skywalker", answer: false},
+            {option: "Princess Leia", answer: false},
+            {option: "Han Solo", answer: false},
+        ]
+    },
 ]
    
 function showQuestions(){
