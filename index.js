@@ -1,18 +1,51 @@
 const triviaQuestions = document.getElementById("questions-container");
+const op1Button = document.getElementById('op1');
+const op2Button = document.getElementById('op2');
+const op3Button = document.getElementById('op3');
+const op4Button = document.getElementById('op4');
 
 
-const question1 = {
-    question: "hello"
-    options
-}
+let currentQuestion = 0;
+
+const questions = [
+    {
+        question: "What year was the original Star Wars movie released?",
+        answers: [
+            {option: "1977", answer: true},
+            {option: "1980", answer: false},
+            {option: "1976", answer: false},
+            {option: "1981", answer: false},
+        ]
+    },
+
+    {
+        question: "What is the name of the wookiees' homeworld?",
+        answers: [
+            {option: "Naboo"},
+            {option: "Hoth"},
+            {option: "Kashyyyk"},
+            {option: "Dagobah"},
+        ]
+    },
+
+    {
+        question: "What age did Padmé Amidala become a queen?",
+        answers: [
+            {option: "18"},
+            {option: "14"},
+            {option: "13"},
+            {option: "20"},
+        ]
+    }
+]
    
-        
-function showQuestion(qs){
-    triviaQuestions.innerText = qs.question
+function showQuestions(){
+    // currentQuestion = 0;
+    triviaQuestions.innerText = questions[currentQuestion].question;
+    op1Button.innerText = questions[currentQuestion].answers[0].option;
+    op2Button.innerText = questions[currentQuestion].answers[1].option;
+    op3Button.innerText = questions[currentQuestion].answers[2].option;
+    op4Button.innerText = questions[currentQuestion].answers[3].option;
 }
 
-function showtriviaOptions(opts){
-    triviaOptions.innerText = opts.option1
-}
-showQuestion(question1)
-showtriviaOptions(question1)
+showQuestions();
