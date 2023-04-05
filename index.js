@@ -3,7 +3,9 @@ const op1Button = document.getElementById('op1');
 const op2Button = document.getElementById('op2');
 const op3Button = document.getElementById('op3');
 const op4Button = document.getElementById('op4');
+const nextButton = document.getElementById('next');
 
+nextButton.addEventListener('click', next);
 
 let currentQuestion = 0;
 
@@ -47,10 +49,11 @@ const questions = [
             {option: "Han Solo", answer: false},
         ]
     },
+
 ]
    
 function showQuestions(){
-    // currentQuestion = 0;
+    currentQuestion = 0;
     triviaQuestions.innerText = questions[currentQuestion].question;
     op1Button.innerText = questions[currentQuestion].answers[0].option;
     op2Button.innerText = questions[currentQuestion].answers[1].option;
@@ -59,3 +62,17 @@ function showQuestions(){
 }
 
 showQuestions();
+
+function next(){
+    currentQuestion++;
+    if(currentQuestion >= 4){
+        nextButton.classList.add('hide');
+    }
+    triviaQuestions.innerText = questions[currentQuestion].question;
+    op1Button.innerText = questions[currentQuestion].answers[0].option;
+    op2Button.innerText = questions[currentQuestion].answers[1].option;
+    op3Button.innerText = questions[currentQuestion].answers[2].option;
+    op4Button.innerText = questions[currentQuestion].answers[3].option;
+}
+
+next();
