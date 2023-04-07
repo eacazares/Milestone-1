@@ -8,7 +8,7 @@ const op4Button = document.getElementById('op4');
 const nextButton = document.getElementById('next');
 const submitButton = document.getElementById('submit');
 
-// const playerScore = document.getElementById('player-score');
+const playerScore = document.getElementById('player-score');
 
 
 // event listeners
@@ -32,20 +32,20 @@ const questions = [
     {
         question: "What is the name of the wookiees' homeworld?",
         answers: [
-            {option: "Naboo"},
-            {option: "Hoth"},
-            {option: "Kashyyyk"},
-            {option: "Dagobah"},
+            {option: "Naboo", answer: false},
+            {option: "Hoth", answer: false},
+            {option: "Kashyyyk", answer: true},
+            {option: "Dagobah", answer: false},
         ]
     },
 
     {
         question: "What age did Padmé Amidala become a queen?",
         answers: [
-            {option: "18"},
-            {option: "14"},
-            {option: "13"},
-            {option: "20"},
+            {option: "18", answer: false},
+            {option: "14", answer: true},
+            {option: "13", answer: false},
+            {option: "20", answer: false},
         ]
     },
 
@@ -65,21 +65,43 @@ function showQuestions(){
     currentQuestion = 0;
     triviaQuestions.innerText = questions[currentQuestion].question;
     op1Button.innerText = questions[currentQuestion].answers[0].option;
+    op1Button.onclick = () => {
+        let answerIndex = 0;
+        if(questions[currentQuestion].answers[answerIndex].answer){
+            score++
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 3){
+            next();
+        }
+
+    }
     op2Button.innerText = questions[currentQuestion].answers[1].option;
     op3Button.innerText = questions[currentQuestion].answers[2].option;
     op4Button.innerText = questions[currentQuestion].answers[3].option;
-    
+
 }
 
 showQuestions();
 
 function next(){
     currentQuestion++;
-    if(currentQuestion <= 4){
+    if(currentQuestion >= 3){
         nextButton.classList.add('hide');
     }
     triviaQuestions.innerText = questions[currentQuestion].question;
     op1Button.innerText = questions[currentQuestion].answers[0].option;
+    op1Button.onclick = () => {
+        let answerIndex = 0;
+        if(questions[currentQuestion].answers[answerIndex].answer){
+            score++
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 3){
+            next();
+        }
+
+    }
     op2Button.innerText = questions[currentQuestion].answers[1].option;
     op3Button.innerText = questions[currentQuestion].answers[2].option;
     op4Button.innerText = questions[currentQuestion].answers[3].option;
