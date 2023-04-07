@@ -1,13 +1,22 @@
+// variables
 const triviaQuestions = document.getElementById("questions-container");
+
 const op1Button = document.getElementById('op1');
 const op2Button = document.getElementById('op2');
 const op3Button = document.getElementById('op3');
 const op4Button = document.getElementById('op4');
 const nextButton = document.getElementById('next');
+const submitButton = document.getElementById('submit');
 
+// const playerScore = document.getElementById('player-score');
+
+
+// event listeners
 nextButton.addEventListener('click', next);
+// submitButton.addEventListener('click', submit);
 
 let currentQuestion = 0;
+let score = 0;
 
 const questions = [
     {
@@ -59,13 +68,14 @@ function showQuestions(){
     op2Button.innerText = questions[currentQuestion].answers[1].option;
     op3Button.innerText = questions[currentQuestion].answers[2].option;
     op4Button.innerText = questions[currentQuestion].answers[3].option;
+    
 }
 
 showQuestions();
 
 function next(){
     currentQuestion++;
-    if(currentQuestion >= 4){
+    if(currentQuestion <= 4){
         nextButton.classList.add('hide');
     }
     triviaQuestions.innerText = questions[currentQuestion].question;
@@ -75,4 +85,3 @@ function next(){
     op4Button.innerText = questions[currentQuestion].answers[3].option;
 }
 
-next();
