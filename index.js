@@ -129,6 +129,79 @@ function showQuestions(){
         if(currentQuestion< 7){
             next();
         }
+    }
+    op3Button.innerText = questions[currentQuestion].answers[2].option;
+    op3Button.onclick = () => {
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[2].answer){
+            if(score<8){
+                score++
+            }   
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 7){
+            next();
+        }
+    }
+    op4Button.innerText = questions[currentQuestion].answers[3].option;
+    op4Button.onclick = () => {
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[3].answer){
+            if(score<8){
+                score++
+            }   
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 7){
+            next();
+        }
+    }
+
+}
+
+showQuestions();
+
+function next(){
+    currentQuestion++;
+    //  if(currentQuestion >= 7){
+    //      submitButton.classList.add('hide');
+    // }
+    triviaQuestions.innerText = questions[currentQuestion].question;
+    op1Button.innerText = questions[currentQuestion].answers[0].option;
+    op1Button.onclick = () => {
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[0].answer){
+            if(score<8){
+                score++
+            }   
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 7){
+            next();
+        } else {
+            submit();
+        }
+
+        // if(currentQuestion>7){
+        //     submit();
+        // }
+
+    }
+    op2Button.innerText = questions[currentQuestion].answers[1].option;
+    op2Button.onclick = () => {
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[1].answer){
+            if(score<8){
+                score++
+            }   
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 7){
+            next();
+        } else {
+            submit();
+        }
+     
 
     }
     op3Button.innerText = questions[currentQuestion].answers[2].option;
@@ -142,6 +215,8 @@ function showQuestions(){
         playerScore.innerText = score;
         if(currentQuestion< 7){
             next();
+        } else {
+            submit();
         }
 
     }
@@ -156,37 +231,10 @@ function showQuestions(){
         playerScore.innerText = score;
         if(currentQuestion< 7){
             next();
+        } else {
+            submit();
         }
-
     }
-
-}
-
-showQuestions();
-
-function next(){
-    currentQuestion++;
-     if(currentQuestion >= 7){
-         submitButton.classList.add('hide');
-    }
-    triviaQuestions.innerText = questions[currentQuestion].question;
-    op1Button.innerText = questions[currentQuestion].answers[0].option;
-    op1Button.onclick = () => {
-        // let answerIndex = 0;
-        if(questions[currentQuestion].answers[0].answer){
-            if(score<8){
-                score++
-            }   
-        }
-        playerScore.innerText = score;
-        if(currentQuestion< 7){
-            next();
-        }
-
-    }
-    op2Button.innerText = questions[currentQuestion].answers[1].option;
-    op3Button.innerText = questions[currentQuestion].answers[2].option;
-    op4Button.innerText = questions[currentQuestion].answers[3].option;
 }
 
 function submit (){
