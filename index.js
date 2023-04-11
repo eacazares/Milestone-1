@@ -59,6 +59,46 @@ const questions = [
         ]
     },
 
+    {
+        question: "What is Chewbacca's weapon of choice?",
+        answers: [
+            {option: "Blaster rifle", answer: false},
+            {option: "Lightsaber", answer: false},
+            {option: "Metal club", answer: false},
+            {option: "Bowcaster", answer: true},
+        ]
+    },
+
+    {
+        question: "Who delivers the final blow that destroys the second Death Star?",
+        answers: [
+            {option: "Anakin Skywalker", answer: false},
+            {option: "Luke Skywalker", answer: false},
+            {option: "Lando Calrissian", answer: true},
+            {option: "Han Solo", answer: false},
+        ]
+    },
+
+    {
+        question: "Who adopted Princess Leia?",
+        answers: [
+            {option: "Bail Organa", answer: true},
+            {option: "Captain Antilles", answer: false},
+            {option: "Darth Vader", answer: false},
+            {option: "Owen and Beru Lars", answer: false},
+        ]
+    },
+
+    {
+        question: "Where did the Clone Wars begin?",
+        answers: [
+            {option: "Tatooine", answer: false},
+            {option: "Geonosis", answer: true},
+            {option: "Naboo", answer: false},
+            {option: "Coruscant", answer: false},
+        ]
+    },
+
 ]
    
 function showQuestions(){
@@ -66,19 +106,60 @@ function showQuestions(){
     triviaQuestions.innerText = questions[currentQuestion].question;
     op1Button.innerText = questions[currentQuestion].answers[0].option;
     op1Button.onclick = () => {
-        let answerIndex = 0;
-        if(questions[currentQuestion].answers[answerIndex].answer){
-            score++
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[0].answer){
+            if(score<8){
+                score++
+            }   
         }
         playerScore.innerText = score;
-        if(currentQuestion< 3){
+        if(currentQuestion< 7){
             next();
         }
 
     }
     op2Button.innerText = questions[currentQuestion].answers[1].option;
+    op2Button.onclick = () => {
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[1].answer){
+            if(score<8){
+                score++
+            }   
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 7){
+            next();
+        }
+
+    }
     op3Button.innerText = questions[currentQuestion].answers[2].option;
+    op3Button.onclick = () => {
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[2].answer){
+            if(score<8){
+                score++
+            }   
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 7){
+            next();
+        }
+
+    }
     op4Button.innerText = questions[currentQuestion].answers[3].option;
+    op4Button.onclick = () => {
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[3].answer){
+            if(score<8){
+                score++
+            }   
+        }
+        playerScore.innerText = score;
+        if(currentQuestion< 7){
+            next();
+        }
+
+    }
 
 }
 
@@ -86,18 +167,20 @@ showQuestions();
 
 function next(){
     currentQuestion++;
-    if(currentQuestion >= 3){
-        nextButton.classList.add('hide');
+     if(currentQuestion >= 7){
+         nextButton.classList.add('hide');
     }
     triviaQuestions.innerText = questions[currentQuestion].question;
     op1Button.innerText = questions[currentQuestion].answers[0].option;
     op1Button.onclick = () => {
-        let answerIndex = 0;
-        if(questions[currentQuestion].answers[answerIndex].answer){
-            score++
+        // let answerIndex = 0;
+        if(questions[currentQuestion].answers[0].answer){
+            if(score<8){
+                score++
+            }   
         }
         playerScore.innerText = score;
-        if(currentQuestion< 3){
+        if(currentQuestion< 7){
             next();
         }
 
