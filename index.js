@@ -5,14 +5,13 @@ const op1Button = document.getElementById('op1');
 const op2Button = document.getElementById('op2');
 const op3Button = document.getElementById('op3');
 const op4Button = document.getElementById('op4');
-const nextButton = document.getElementById('next');
-const submitButton = document.getElementById('submit');
+const submitButton = document.getElementById('next');
 
 const playerScore = document.getElementById('player-score');
 
 
 // event listeners
-nextButton.addEventListener('click', next);
+submitButton.addEventListener('click', submit);
 // submitButton.addEventListener('click', submit);
 
 let currentQuestion = 0;
@@ -168,7 +167,7 @@ showQuestions();
 function next(){
     currentQuestion++;
      if(currentQuestion >= 7){
-         nextButton.classList.add('hide');
+         submitButton.classList.add('hide');
     }
     triviaQuestions.innerText = questions[currentQuestion].question;
     op1Button.innerText = questions[currentQuestion].answers[0].option;
@@ -190,3 +189,11 @@ function next(){
     op4Button.innerText = questions[currentQuestion].answers[3].option;
 }
 
+function submit (){
+    submitButton.classList.add('hide');
+    op1Button.classList.add('hide');
+    op2Button.classList.add('hide');
+    op3Button.classList.add('hide');
+    op4Button.classList.add('hide');
+    triviaQuestions.innerHTML = "Thank you for playing!"
+}
